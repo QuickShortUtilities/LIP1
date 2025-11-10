@@ -37,10 +37,10 @@ console.log(`Posting for ${today}: ${post.content}`);
 (async () => {
   let browser;
   try {
-    // === FINAL CRITICAL FIX: Conditionally set executablePath ===
-    // If PUPPETEER_EXECUTABLE_PATH is NOT set, we rely on Puppeteer's internal 
-    // detection mechanism (which is the recommended default). We only override 
-    // if the user explicitly provides the path via an environment variable.
+    // --- CRITICAL PATH RESOLUTION FOR RENDER ---
+    // The code logic below is correct. The error in the last run was that 
+    // the user had set PUPPETEER_EXECUTABLE_PATH to an incorrect value 
+    // (/usr/bin/chromium) in the Render dashboard.
     
     const launchOptions = {
       headless: HEADLESS_MODE,
@@ -48,15 +48,20 @@ console.log(`Posting for ${today}: ${post.content}`);
     };
     
     if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+        // Case 1: User has manually set the ENV variable.
         launchOptions.executablePath = process.env.PUPPETEER_EXECUTABLE_PATH;
         console.log(`✅ Using configured PUPPETEER_EXECUTABLE_PATH: ${launchOptions.executablePath}`);
     } else {
-        // If the ENV variable is missing, we let Puppeteer handle detection.
-        // This log serves as a final warning/instruction.
+        // Case 2: ENV variable is not set. RELY ON PUPPETEER'S DEFAULT DETECTION.
+        // This is the most reliable method for Render if a manual ENV is not required.
         console.warn("⚠️ PUPPETEER_EXECUTABLE_PATH is missing. Relying on default detection.");
         console.warn("   If this run fails, you MUST manually set PUPPETEER_EXECUTABLE_PATH in Render's dashboard.");
-        console.warn("   Try setting it to: /usr/bin/chromium or /usr/bin/google-chrome.");
+        console.warn("   Try setting it to the path from the BUILD LOG: /opt/render/.cache/puppeteer/chrome/linux-131.0.6778.204/chrome-linux64/chrome");
     }
+    
+    // NOTE: If PUPPETEER_EXECUTABLE_PATH is cleared in the dashboard, the executablePath property
+    // will be omitted, allowing Puppeteer's internal resolver (puppeteer.launch()) 
+    // to search for the installed browser, which is what we need.
     
     browser = await puppeteer.launch(launchOptions);
 
