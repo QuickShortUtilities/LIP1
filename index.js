@@ -1,7 +1,6 @@
 import puppeteer from "puppeteer";
 import fs from "fs";
 import dotenv from "dotenv";
-import path from "path"; // Re-introducing path for better debug logging
 
 dotenv.config();
 
@@ -37,30 +36,24 @@ console.log(`Posting for ${today}: ${post.content}`);
 (async () => {
   let browser;
   try {
-    // --- CRITICAL PATH RESOLUTION FOR RENDER ---
-    // This logic checks if the provided ENV variable is a known bad generic path 
-    // and overrides it with Puppeteer's calculated path if so.
-    
+    // --- FINAL ABSOLUTE PATH RESOLUTION ---
     let executablePathToUse = process.env.PUPPETEER_EXECUTABLE_PATH;
-    const knownBadPaths = ['/usr/bin/chromium', '/usr/bin/google-chrome', '/usr/bin/google-chrome-stable'];
+    
+    if (!executablePathToUse) {
+        // This is the instruction for the user if the path is not set in Render's dashboard.
+        console.warn("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        console.warn("⚠️ ERROR: PUPPETEER_EXECUTABLE_PATH is missing. This will likely fail.");
+        console.warn("⚠️ FIX: You MUST set PUPPETEER_EXECUTABLE_PATH in your Render dashboard");
+        console.warn("   to the exact path from the build log:");
+        console.warn("   /opt/render/.cache/puppeteer/chrome/linux-131.0.6778.204/chrome-linux64/chrome");
+        console.warn("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
-    if (!executablePathToUse || knownBadPaths.includes(executablePathToUse)) {
-        // Case 1: ENV variable is missing OR it is set to a known bad generic path.
-        // We override the path with Puppeteer's own calculated, version-specific path.
+        // We still try to use the version-resolved path, but we know it might fail.
         executablePathToUse = puppeteer.executablePath();
-        
-        if (knownBadPaths.includes(process.env.PUPPETEER_EXECUTABLE_PATH)) {
-            console.warn(`⚠️ Overriding invalid executablePath (${process.env.PUPPETEER_EXECUTABLE_PATH}) with Puppeteer's calculated path.`);
-        } else {
-            console.warn("⚠️ PUPPETEER_EXECUTABLE_PATH is missing. Relying on Puppeteer's default detection.");
-        }
-        console.log(`🚀 Final executablePath chosen: ${executablePathToUse}`);
-
-    } else {
-        // Case 2: User has manually set the ENV variable and it's not a known bad generic path.
-        console.log(`✅ Using user-configured PUPPETEER_EXECUTABLE_PATH: ${executablePathToUse}`);
     }
     
+    console.log(`🚀 Final executablePath chosen: ${executablePathToUse}`);
+
     const launchOptions = {
       headless: HEADLESS_MODE,
       executablePath: executablePathToUse,
