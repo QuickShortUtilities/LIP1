@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 import fs from "fs";
 import dotenv from "dotenv";
-// import path from "path"; // No longer needed
+import path from "path"; // Re-introducing path for better debug logging
 
 dotenv.config();
 
@@ -38,30 +38,34 @@ console.log(`Posting for ${today}: ${post.content}`);
   let browser;
   try {
     // --- CRITICAL PATH RESOLUTION FOR RENDER ---
-    // The code logic below is correct. The error in the last run was that 
-    // the user had set PUPPETEER_EXECUTABLE_PATH to an incorrect value 
-    // (/usr/bin/chromium) in the Render dashboard.
+    // This logic checks if the provided ENV variable is a known bad generic path 
+    // and overrides it with Puppeteer's calculated path if so.
+    
+    let executablePathToUse = process.env.PUPPETEER_EXECUTABLE_PATH;
+    const knownBadPaths = ['/usr/bin/chromium', '/usr/bin/google-chrome', '/usr/bin/google-chrome-stable'];
+
+    if (!executablePathToUse || knownBadPaths.includes(executablePathToUse)) {
+        // Case 1: ENV variable is missing OR it is set to a known bad generic path.
+        // We override the path with Puppeteer's own calculated, version-specific path.
+        executablePathToUse = puppeteer.executablePath();
+        
+        if (knownBadPaths.includes(process.env.PUPPETEER_EXECUTABLE_PATH)) {
+            console.warn(`⚠️ Overriding invalid executablePath (${process.env.PUPPETEER_EXECUTABLE_PATH}) with Puppeteer's calculated path.`);
+        } else {
+            console.warn("⚠️ PUPPETEER_EXECUTABLE_PATH is missing. Relying on Puppeteer's default detection.");
+        }
+        console.log(`🚀 Final executablePath chosen: ${executablePathToUse}`);
+
+    } else {
+        // Case 2: User has manually set the ENV variable and it's not a known bad generic path.
+        console.log(`✅ Using user-configured PUPPETEER_EXECUTABLE_PATH: ${executablePathToUse}`);
+    }
     
     const launchOptions = {
       headless: HEADLESS_MODE,
-      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"] // Common args for container stability
+      executablePath: executablePathToUse,
+      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"] 
     };
-    
-    if (process.env.PUPPETEER_EXECUTABLE_PATH) {
-        // Case 1: User has manually set the ENV variable.
-        launchOptions.executablePath = process.env.PUPPETEER_EXECUTABLE_PATH;
-        console.log(`✅ Using configured PUPPETEER_EXECUTABLE_PATH: ${launchOptions.executablePath}`);
-    } else {
-        // Case 2: ENV variable is not set. RELY ON PUPPETEER'S DEFAULT DETECTION.
-        // This is the most reliable method for Render if a manual ENV is not required.
-        console.warn("⚠️ PUPPETEER_EXECUTABLE_PATH is missing. Relying on default detection.");
-        console.warn("   If this run fails, you MUST manually set PUPPETEER_EXECUTABLE_PATH in Render's dashboard.");
-        console.warn("   Try setting it to the path from the BUILD LOG: /opt/render/.cache/puppeteer/chrome/linux-131.0.6778.204/chrome-linux64/chrome");
-    }
-    
-    // NOTE: If PUPPETEER_EXECUTABLE_PATH is cleared in the dashboard, the executablePath property
-    // will be omitted, allowing Puppeteer's internal resolver (puppeteer.launch()) 
-    // to search for the installed browser, which is what we need.
     
     browser = await puppeteer.launch(launchOptions);
 
