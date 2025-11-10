@@ -38,21 +38,22 @@ console.log(`Posting for ${today}: ${post.content}`);
   let browser;
   try {
     // === CRITICAL FIX: Direct path resolution for container environments ===
-    // Since PUPPETEER_EXECUTABLE_PATH is missing, we fall back to the most common 
-    // system path for Chrome in Linux environments (`/usr/bin/google-chrome-stable`).
-    // This often works when the Puppeteer cache path is inaccessible at runtime.
-    const CHROME_EXECUTABLE_PATH = process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/google-chrome-stable';
+    // Since PUPPETEER_EXECUTABLE_PATH is missing, we are falling back to the most common 
+    // system path for Chrome in Linux environments that might be installed (`/usr/bin/chromium`).
+    // If this fails, the definitive solution is setting PUPPETEER_EXECUTABLE_PATH in Render's environment config.
+    const CHROME_EXECUTABLE_PATH = process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/chromium';
     
     // Check if the path is the generic one and log a warning if the user hasn't configured the ENV var
     if (!process.env.PUPPETEER_EXECUTABLE_PATH) {
-        console.warn("⚠️ PUPPETEER_EXECUTABLE_PATH is missing. Falling back to generic path: /usr/bin/google-chrome-stable");
-        console.warn("   If this fails, please configure PUPPETEER_EXECUTABLE_PATH in your Render environment variables.");
+        console.warn("⚠️ PUPPETEER_EXECUTABLE_PATH is missing. Falling back to generic path: /usr/bin/chromium");
+        console.warn("   **IF THIS FAILS, you MUST set PUPPETEER_EXECUTABLE_PATH in your Render environment variables.**");
+        console.warn("   Try setting it to: /usr/bin/chromium or /usr/bin/google-chrome");
     }
 
     browser = await puppeteer.launch({
       headless: HEADLESS_MODE,
       executablePath: CHROME_EXECUTABLE_PATH,
-      args: ["--no-sandbox", "--disable-setuid-sandbox"]
+      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"] // Added common args for stability
     });
 
     const page = await browser.newPage();
