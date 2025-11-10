@@ -38,12 +38,16 @@ console.log(`Posting for ${today}: ${post.content}`);
 (async () => {
   let browser;
   try {
-    // === CRITICAL FIX: Use the path set by the build process ===
-    // This environment variable is set when you run `npx puppeteer browsers install chrome`
-    // and points to the executable location in the deployment environment.
+    // === FIX: Use the most robust path resolution for container environments ===
+    // We combine the check for the environment variable (PUPPETEER_EXECUTABLE_PATH)
+    // with the default Puppeteer resolution function (puppeteer.executablePath()).
+    // If the environment variable is empty, it falls back to the path derived by Puppeteer 
+    // from its cache, which should be correct after the installation step.
+    const chromeExecutablePath = process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath();
+    
     browser = await puppeteer.launch({
       headless: HEADLESS,
-      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+      executablePath: chromeExecutablePath,
       args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
 
