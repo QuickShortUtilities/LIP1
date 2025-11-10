@@ -37,24 +37,28 @@ console.log(`Posting for ${today}: ${post.content}`);
 (async () => {
   let browser;
   try {
-    // === CRITICAL FIX: Direct path resolution for container environments ===
-    // Since PUPPETEER_EXECUTABLE_PATH is missing, we are falling back to the most common 
-    // system path for Chrome in Linux environments that might be installed (`/usr/bin/chromium`).
-    // If this fails, the definitive solution is setting PUPPETEER_EXECUTABLE_PATH in Render's environment config.
-    const CHROME_EXECUTABLE_PATH = process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/chromium';
+    // === FINAL CRITICAL FIX: Conditionally set executablePath ===
+    // If PUPPETEER_EXECUTABLE_PATH is NOT set, we rely on Puppeteer's internal 
+    // detection mechanism (which is the recommended default). We only override 
+    // if the user explicitly provides the path via an environment variable.
     
-    // Check if the path is the generic one and log a warning if the user hasn't configured the ENV var
-    if (!process.env.PUPPETEER_EXECUTABLE_PATH) {
-        console.warn("⚠️ PUPPETEER_EXECUTABLE_PATH is missing. Falling back to generic path: /usr/bin/chromium");
-        console.warn("   **IF THIS FAILS, you MUST set PUPPETEER_EXECUTABLE_PATH in your Render environment variables.**");
-        console.warn("   Try setting it to: /usr/bin/chromium or /usr/bin/google-chrome");
-    }
-
-    browser = await puppeteer.launch({
+    const launchOptions = {
       headless: HEADLESS_MODE,
-      executablePath: CHROME_EXECUTABLE_PATH,
-      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"] // Added common args for stability
-    });
+      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"] // Common args for container stability
+    };
+    
+    if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+        launchOptions.executablePath = process.env.PUPPETEER_EXECUTABLE_PATH;
+        console.log(`✅ Using configured PUPPETEER_EXECUTABLE_PATH: ${launchOptions.executablePath}`);
+    } else {
+        // If the ENV variable is missing, we let Puppeteer handle detection.
+        // This log serves as a final warning/instruction.
+        console.warn("⚠️ PUPPETEER_EXECUTABLE_PATH is missing. Relying on default detection.");
+        console.warn("   If this run fails, you MUST manually set PUPPETEER_EXECUTABLE_PATH in Render's dashboard.");
+        console.warn("   Try setting it to: /usr/bin/chromium or /usr/bin/google-chrome.");
+    }
+    
+    browser = await puppeteer.launch(launchOptions);
 
     const page = await browser.newPage();
 
