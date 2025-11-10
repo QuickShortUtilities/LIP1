@@ -9,8 +9,9 @@ dotenv.config();
 const posts = JSON.parse(fs.readFileSync("./config/posts_full_year.json", "utf8"));
 const USER = process.env.LINKEDIN_USER;
 const PASS = process.env.LINKEDIN_PASS;
-// Ensure HEADLESS is correctly interpreted
-const HEADLESS = process.env.HEADLESS === "true" || process.env.HEADLESS !== "false"; 
+
+// Use 'new' headless mode if HEADLESS is not explicitly 'false'
+const HEADLESS_MODE = process.env.HEADLESS === "false" ? false : 'new';
 const MIN_DELAY = parseInt(process.env.MIN_DELAY_SEC) || 30;
 const MAX_DELAY = parseInt(process.env.MAX_DELAY_SEC) || 120;
 
@@ -22,8 +23,6 @@ function randomDelay() {
   const ms = Math.floor(Math.random() * (MAX_DELAY - MIN_DELAY + 1) + MIN_DELAY) * 1000;
   return delay(ms);
 }
-
-// Removed the custom CHROME_PATH logic as we will rely on process.env.PUPPETEER_EXECUTABLE_PATH
 
 const today = new Date().toISOString().split("T")[0];
 const post = posts.find((p) => p.date === today);
@@ -38,16 +37,21 @@ console.log(`Posting for ${today}: ${post.content}`);
 (async () => {
   let browser;
   try {
-    // === FIX: Use the most robust path resolution for container environments ===
-    // We combine the check for the environment variable (PUPPETEER_EXECUTABLE_PATH)
-    // with the default Puppeteer resolution function (puppeteer.executablePath()).
-    // If the environment variable is empty, it falls back to the path derived by Puppeteer 
-    // from its cache, which should be correct after the installation step.
-    const chromeExecutablePath = process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath();
+    // === CRITICAL FIX: Direct path resolution for container environments ===
+    // Since PUPPETEER_EXECUTABLE_PATH is missing, we fall back to the most common 
+    // system path for Chrome in Linux environments (`/usr/bin/google-chrome-stable`).
+    // This often works when the Puppeteer cache path is inaccessible at runtime.
+    const CHROME_EXECUTABLE_PATH = process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/google-chrome-stable';
     
+    // Check if the path is the generic one and log a warning if the user hasn't configured the ENV var
+    if (!process.env.PUPPETEER_EXECUTABLE_PATH) {
+        console.warn("⚠️ PUPPETEER_EXECUTABLE_PATH is missing. Falling back to generic path: /usr/bin/google-chrome-stable");
+        console.warn("   If this fails, please configure PUPPETEER_EXECUTABLE_PATH in your Render environment variables.");
+    }
+
     browser = await puppeteer.launch({
-      headless: HEADLESS,
-      executablePath: chromeExecutablePath,
+      headless: HEADLESS_MODE,
+      executablePath: CHROME_EXECUTABLE_PATH,
       args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
 
