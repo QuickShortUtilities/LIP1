@@ -36,29 +36,23 @@ console.log(`Posting for ${today}: ${post.content}`);
 (async () => {
   let browser;
   try {
-    // --- FINAL ABSOLUTE PATH RESOLUTION ---
-    let executablePathToUse = process.env.PUPPETEER_EXECUTABLE_PATH;
-    
-    if (!executablePathToUse) {
-        // This is the instruction for the user if the path is not set in Render's dashboard.
-        console.warn("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        console.warn("⚠️ ERROR: PUPPETEER_EXECUTABLE_PATH is missing. This will likely fail.");
-        console.warn("⚠️ FIX: You MUST set PUPPETEER_EXECUTABLE_PATH in your Render dashboard");
-        console.warn("   to the exact path from the build log:");
-        console.warn("   /opt/render/.cache/puppeteer/chrome/linux-131.0.6778.204/chrome-linux64/chrome");
-        console.warn("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-        // We still try to use the version-resolved path, but we know it might fail.
-        executablePathToUse = puppeteer.executablePath();
-    }
-    
-    console.log(`🚀 Final executablePath chosen: ${executablePathToUse}`);
-
+    // --- FINAL CLEAN PATH RESOLUTION ---
     const launchOptions = {
       headless: HEADLESS_MODE,
-      executablePath: executablePathToUse,
       args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"] 
     };
+    
+    // Crucial step: ONLY set executablePath if the environment variable is present.
+    // Otherwise, omit the property entirely, forcing Puppeteer to search the 
+    // system PATH for a pre-installed Chromium/Chrome, which is the most reliable 
+    // method for PaaS platforms like Render.
+    if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+        launchOptions.executablePath = process.env.PUPPETEER_EXECUTABLE_PATH;
+        console.log(`✅ Using configured PUPPETEER_EXECUTABLE_PATH: ${launchOptions.executablePath}`);
+    } else {
+        console.log("⚠️ PUPPETEER_EXECUTABLE_PATH is missing. Relying on system PATH detection (recommended).");
+        // Do NOT set launchOptions.executablePath
+    }
     
     browser = await puppeteer.launch(launchOptions);
 
