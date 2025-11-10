@@ -1,1 +1,722 @@
-
+[
+  {
+    "id": 1,
+    "date": "2025-11-10",
+    "category": "QuickShort Core",
+    "content": "A new creative year begins. QuickShort continues developing automation tools that simplify every step of production."
+  },
+  {
+    "id": 2,
+    "date": "2025-11-11",
+    "category": "QuickShort Core",
+    "content": "QuickShort’s mission is to make intelligent automation accessible to every creator who values precision and speed."
+  },
+  {
+    "id": 3,
+    "date": "2025-11-12",
+    "category": "QuickShort Audio",
+    "content": "QuickShort Audio transforms batch merging into a single-click process. Built for musicians who value consistency and time."
+  },
+  {
+    "id": 4,
+    "date": "2025-11-13",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Audio ToolBox introduces adaptive mastering presets. Each update improves how AI responds to the music, not just the meters."
+  },
+  {
+    "id": 5,
+    "date": "2025-11-14",
+    "category": "QuickShort PictureBox",
+    "content": "PictureBox merges design and automation. Generate artwork aligned with genre, tone, and brand identity without manual repetition."
+  },
+  {
+    "id": 6,
+    "date": "2025-11-15",
+    "category": "QuickShort Video",
+    "content": "QuickShort Video automates short-form rendering. Loop, trim, and sync your visuals instantly for every platform."
+  },
+  {
+    "id": 7,
+    "date": "2025-11-16",
+    "category": "QuickShort InfoBox",
+    "content": "InfoBox structures metadata so your releases appear consistent across streaming and social platforms."
+  },
+  {
+    "id": 8,
+    "date": "2025-11-17",
+    "category": "DropPoint",
+    "content": "DropPoint centralizes export workflows. One location to send finished work to YouTube, TikTok, or SoundCloud simultaneously."
+  },
+  {
+    "id": 9,
+    "date": "2025-11-18",
+    "category": "Automation & Productivity",
+    "content": "Automation frees creative energy. QuickShort products handle the repetitive parts so creators can focus on ideas."
+  },
+  {
+    "id": 10,
+    "date": "2025-11-19",
+    "category": "Design & Technology",
+    "content": "Minimal interfaces, maximum clarity. QuickShort designs around usability so the tools never distract from the craft."
+  },
+  {
+    "id": 11,
+    "date": "2025-11-20",
+    "category": "QuickShort Audio",
+    "content": "Audio merging with QuickShort maintains original fidelity across WAV, FLAC, and AIFF—no hidden compression."
+  },
+  {
+    "id": 12,
+    "date": "2025-11-21",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Audio ToolBox simplifies professional mastering. One interface for gain staging, normalization, and rendering."
+  },
+  {
+    "id": 13,
+    "date": "2025-11-22",
+    "category": "QuickShort PictureBox",
+    "content": "Every artist needs strong visuals. PictureBox learns your preferences to keep future artwork cohesive."
+  },
+  {
+    "id": 14,
+    "date": "2025-11-23",
+    "category": "QuickShort Video",
+    "content": "Fast rendering meets creative control. QuickShort Video balances automation with frame-accurate results."
+  },
+  {
+    "id": 15,
+    "date": "2025-11-24",
+    "category": "QuickShort InfoBox",
+    "content": "Consistent information builds credibility. InfoBox ensures track details, credits, and links stay uniform across sites."
+  },
+  {
+    "id": 16,
+    "date": "2025-11-25",
+    "category": "DropPoint",
+    "content": "DropPoint’s upload manager detects duplicates and confirms distribution success automatically."
+  },
+  {
+    "id": 17,
+    "date": "2025-11-26",
+    "category": "QuickShort Core",
+    "content": "QuickShort applications evolve through feedback from working creators, ensuring updates reflect real-world needs."
+  },
+  {
+    "id": 18,
+    "date": "2025-11-27",
+    "category": "Music & Sound",
+    "content": "Efficient workflows lead to better sound. QuickShort tools remove friction from every creative stage."
+  },
+  {
+    "id": 19,
+    "date": "2025-11-28",
+    "category": "QuickShort Audio",
+    "content": "QuickShort Audio batch-processes multiple songs into finished video formats without extra configuration."
+  },
+  {
+    "id": 20,
+    "date": "2025-11-29",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Smart presets in Audio ToolBox emulate analog warmth with digital consistency for modern mastering chains."
+  },
+  {
+    "id": 21,
+    "date": "2025-11-30",
+    "category": "QuickShort PictureBox",
+    "content": "PictureBox assists with campaign cohesion. Generate all artwork for an album or series from a single creative seed."
+  },
+  {
+    "id": 22,
+    "date": "2025-12-01",
+    "category": "QuickShort Video",
+    "content": "Automation is not replacement—it’s reinforcement. QuickShort Video automates the mechanical work so ideas stay human."
+  },
+  {
+    "id": 23,
+    "date": "2025-12-02",
+    "category": "QuickShort InfoBox",
+    "content": "With InfoBox, every release note, credit, and link remains accurate across platforms without manual edits."
+  },
+  {
+    "id": 24,
+    "date": "2025-12-03",
+    "category": "DropPoint",
+    "content": "DropPoint prepares your exports for each platform’s compression and file requirements automatically."
+  },
+  {
+    "id": 25,
+    "date": "2025-12-04",
+    "category": "QuickShort Core",
+    "content": "QuickShort defines productivity through focus, not haste. Clean tools make consistent creators."
+  },
+  {
+    "id": 26,
+    "date": "2025-12-05",
+    "category": "Design & Technology",
+    "content": "Design clarity reduces support requests. Every QuickShort interface is built for intuitive discovery."
+  },
+  {
+    "id": 27,
+    "date": "2025-12-06",
+    "category": "Automation & Productivity",
+    "content": "Batch export features across QuickShort products save days of work each month for active creators."
+  },
+  {
+    "id": 28,
+    "date": "2025-12-07",
+    "category": "QuickShort Audio",
+    "content": "QuickShort Audio’s fade algorithms maintain precision timing, ensuring seamless loop points in exported videos."
+  },
+  {
+    "id": 29,
+    "date": "2025-12-08",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Audio ToolBox converts audio formats intelligently, detecting and preserving metadata during each render."
+  },
+  {
+    "id": 30,
+    "date": "2025-12-09",
+    "category": "QuickShort PictureBox",
+    "content": "Creative direction meets automation. PictureBox balances AI generation with manual refinement options."
+  },
+  {
+    "id": 31,
+    "date": "2025-12-10",
+    "category": "QuickShort Video",
+    "content": "QuickShort Video ensures video timing matches audio duration exactly, looping or trimming automatically."
+  },
+  {
+    "id": 32,
+    "date": "2025-12-11",
+    "category": "QuickShort InfoBox",
+    "content": "Accurate metadata means better recommendations. InfoBox optimizes descriptions for platform discovery."
+  },
+  {
+    "id": 33,
+    "date": "2025-12-12",
+    "category": "DropPoint",
+    "content": "DropPoint verifies upload integrity by comparing file checksums before confirming publication."
+  },
+  {
+    "id": 34,
+    "date": "2025-12-13",
+    "category": "QuickShort Core",
+    "content": "QuickShort continues to integrate AI responsibly, ensuring automation remains transparent and user-controlled."
+  },
+  {
+    "id": 35,
+    "date": "2025-12-14",
+    "category": "Future & Vision",
+    "content": "The long-term QuickShort plan: unify creative automation across sound, image, and video in one framework."
+  },
+  {
+    "id": 36,
+    "date": "2025-12-15",
+    "category": "QuickShort Core",
+    "content": "Every update is shaped by real workflows. QuickShort listens first, builds second."
+  },
+  {
+    "id": 37,
+    "date": "2025-12-16",
+    "category": "QuickShort Audio",
+    "content": "Precision sync keeps creators efficient. QuickShort Audio eliminates manual alignment work between sound and picture."
+  },
+  {
+    "id": 38,
+    "date": "2025-12-17",
+    "category": "QuickShort Audio ToolBox",
+    "content": "AI in Audio ToolBox is tuned to assist—not dictate. It offers choices, not assumptions."
+  },
+  {
+    "id": 39,
+    "date": "2025-12-18",
+    "category": "QuickShort PictureBox",
+    "content": "PictureBox’s output is optimized for multiple aspect ratios, from square artwork to cinematic widescreen."
+  },
+  {
+    "id": 40,
+    "date": "2025-12-19",
+    "category": "QuickShort Video",
+    "content": "Creators need reliability. QuickShort Video’s encoder ensures stable exports even under heavy batch loads."
+  },
+  {
+    "id": 41,
+    "date": "2025-12-20",
+    "category": "QuickShort InfoBox",
+    "content": "Structured metadata increases professionalism. InfoBox brings standardization to creative publishing."
+  },
+  {
+    "id": 42,
+    "date": "2025-12-21",
+    "category": "DropPoint",
+    "content": "DropPoint automates post-render organization, archiving every completed file with timestamped accuracy."
+  },
+  {
+    "id": 43,
+    "date": "2025-12-22",
+    "category": "QuickShort Core",
+    "content": "QuickShort defines innovation as refinement. Progress comes from simplifying what already works."
+  },
+  {
+    "id": 44,
+    "date": "2025-12-23",
+    "category": "Design & Technology",
+    "content": "Consistent UI patterns across QuickShort products mean creators can switch tools without learning curves."
+  },
+  {
+    "id": 45,
+    "date": "2025-12-24",
+    "category": "Automation & Productivity",
+    "content": "True productivity means less correction later. QuickShort automation ensures first-pass accuracy in every task."
+  },
+  {
+    "id": 46,
+    "date": "2025-12-25",
+    "category": "QuickShort Core",
+    "content": "QuickShort celebrates simplicity: one company, one ecosystem, multiple ways to empower creators."
+  },
+  {
+    "id": 47,
+    "date": "2025-12-26",
+    "category": "QuickShort Audio",
+    "content": "QuickShort Audio exports maintain normalized loudness across multiple tracks, preventing post-production mismatch."
+  },
+  {
+    "id": 48,
+    "date": "2025-12-27",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Audio ToolBox introduces CSV-based batch control, letting engineers map entire projects from one file."
+  },
+  {
+    "id": 49,
+    "date": "2025-12-28",
+    "category": "QuickShort PictureBox",
+    "content": "PictureBox supports layered compositing so users can mix AI output with original graphics for hybrid design."
+  },
+  {
+    "id": 50,
+    "date": "2025-12-29",
+    "category": "QuickShort Video",
+    "content": "QuickShort Video adds frame-rate preservation, ensuring exports stay true to the source capture."
+  },
+  {
+    "id": 51,
+    "date": "2025-12-30",
+    "category": "QuickShort InfoBox",
+    "content": "InfoBox now supports structured templates for music labels and publishing teams to streamline metadata entry."
+  },
+  {
+    "id": 52,
+    "date": "2025-12-31",
+    "category": "Future & Vision",
+    "content": "QuickShort closes the year focused on connection—linking apps, creators, and automation into one fluent ecosystem."
+  },
+  {
+    "id": 53,
+    "date": "2026-01-01",
+    "category": "QuickShort Core",
+    "content": "A new year brings new iterations. QuickShort continues refining every interface for clarity and reliability."
+  },
+  {
+    "id": 54,
+    "date": "2026-01-02",
+    "category": "Design & Technology",
+    "content": "Technical stability is design’s hidden layer. Every QuickShort release prioritizes reliability before aesthetics."
+  },
+  {
+    "id": 55,
+    "date": "2026-01-03",
+    "category": "Automation & Productivity",
+    "content": "QuickShort automation doesn’t rush creation—it removes delay between completion and delivery."
+  },
+  {
+    "id": 56,
+    "date": "2026-01-04",
+    "category": "Music & Sound",
+    "content": "Creativity scales through systems. QuickShort provides the infrastructure behind consistent audio output."
+  },
+  {
+    "id": 57,
+    "date": "2026-01-05",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Audio ToolBox adds dynamic loudness graphs, helping producers visualize balance in real time."
+  },
+  {
+    "id": 58,
+    "date": "2026-01-06",
+    "category": "QuickShort PictureBox",
+    "content": "PictureBox enables batch artwork generation from CSV input—ideal for multi-release projects."
+  },
+  {
+    "id": 59,
+    "date": "2026-01-07",
+    "category": "QuickShort Video",
+    "content": "QuickShort Video introduces render-queue management, letting users schedule multiple exports sequentially."
+  },
+  {
+    "id": 60,
+    "date": "2026-01-08",
+    "category": "QuickShort Core",
+    "content": "Every QuickShort app shares a single goal: to let technology serve creativity quietly, not dominate it."
+  },
+  {
+    "id": 61,
+    "date": "2026-01-09",
+    "category": "QuickShort Core",
+    "content": "QuickShort evolves through small, deliberate updates that strengthen the foundation instead of adding noise."
+  },
+  {
+    "id": 62,
+    "date": "2026-01-10",
+    "category": "QuickShort Audio",
+    "content": "QuickShort Audio continues to refine its sync engine, giving producers tighter alignment between sound and motion."
+  },
+  {
+    "id": 63,
+    "date": "2026-01-11",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Audio ToolBox integrates platform-specific mastering targets so your exports meet Spotify and YouTube loudness standards automatically."
+  },
+  {
+    "id": 64,
+    "date": "2026-01-12",
+    "category": "QuickShort PictureBox",
+    "content": "PictureBox now includes adjustable color profiles for accurate rendering across print and digital outputs."
+  },
+  {
+    "id": 65,
+    "date": "2026-01-13",
+    "category": "QuickShort Video",
+    "content": "QuickShort Video improves codec management, ensuring uniform results across MOV, MP4, and WEBM."
+  },
+  {
+    "id": 66,
+    "date": "2026-01-14",
+    "category": "QuickShort InfoBox",
+    "content": "InfoBox receives template automation for release notes, reducing manual metadata editing for frequent publishers."
+  },
+  {
+    "id": 67,
+    "date": "2026-01-15",
+    "category": "DropPoint",
+    "content": "DropPoint expands integration to additional platforms, broadening distribution coverage for QuickShort users."
+  },
+  {
+    "id": 68,
+    "date": "2026-01-16",
+    "category": "Design & Technology",
+    "content": "QuickShort design language relies on precision spacing and neutral color tones to reduce interface fatigue during long sessions."
+  },
+  {
+    "id": 69,
+    "date": "2026-01-17",
+    "category": "Automation & Productivity",
+    "content": "Creators who automate their rendering process report a 40 percent reduction in turnaround time with QuickShort workflows."
+  },
+  {
+    "id": 70,
+    "date": "2026-01-18",
+    "category": "QuickShort Audio",
+    "content": "QuickShort Audio introduces file validation that checks bitrate and sample rate consistency before render."
+  },
+  {
+    "id": 71,
+    "date": "2026-01-19",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Audio ToolBox adds intelligent format recommendations based on intended platform delivery."
+  },
+  {
+    "id": 72,
+    "date": "2026-01-20",
+    "category": "QuickShort PictureBox",
+    "content": "PictureBox allows prompt weighting so artists can control how strongly style or subject guides AI generation."
+  },
+  {
+    "id": 73,
+    "date": "2026-01-21",
+    "category": "QuickShort Video",
+    "content": "QuickShort Video integrates LUT management, letting creators apply consistent color profiles across renders."
+  },
+  {
+    "id": 74,
+    "date": "2026-01-22",
+    "category": "QuickShort InfoBox",
+    "content": "InfoBox introduces multi-language metadata fields, supporting international release distribution."
+  },
+  {
+    "id": 75,
+    "date": "2026-01-23",
+    "category": "DropPoint",
+    "content": "DropPoint now logs analytics for each export, giving insight into platform success rates and delivery times."
+  },
+  {
+    "id": 76,
+    "date": "2026-01-24",
+    "category": "QuickShort Core",
+    "content": "QuickShort’s codebase remains modular, allowing each app to evolve independently while sharing the same architecture."
+  },
+  {
+    "id": 77,
+    "date": "2026-01-25",
+    "category": "Music & Sound",
+    "content": "Independent musicians gain new leverage through automation; QuickShort supports the technical side so artists can focus on emotion."
+  },
+  {
+    "id": 78,
+    "date": "2026-01-26",
+    "category": "QuickShort Audio",
+    "content": "QuickShort Audio maintains full offline processing, protecting privacy while delivering high performance."
+  },
+  {
+    "id": 79,
+    "date": "2026-01-27",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Audio ToolBox enables batch mastering sessions, aligning entire EPs with consistent loudness and tonal balance."
+  },
+  {
+    "id": 80,
+    "date": "2026-01-28",
+    "category": "QuickShort PictureBox",
+    "content": "PictureBox introduces grid preview layout, making it easier to compare generated variations visually."
+  },
+  {
+    "id": 81,
+    "date": "2026-01-29",
+    "category": "QuickShort Video",
+    "content": "QuickShort Video adds adaptive compression to balance quality and file size automatically per platform."
+  },
+  {
+    "id": 82,
+    "date": "2026-01-30",
+    "category": "QuickShort InfoBox",
+    "content": "InfoBox ensures each release meets structured data standards, helping discovery algorithms read your content correctly."
+  },
+  {
+    "id": 83,
+    "date": "2026-01-31",
+    "category": "DropPoint",
+    "content": "DropPoint integrates account linking, allowing direct uploads without repetitive authentication."
+  },
+  {
+    "id": 84,
+    "date": "2026-02-01",
+    "category": "QuickShort Core",
+    "content": "QuickShort measures progress by user efficiency. The less time spent on setup, the closer we are to our goal."
+  },
+  {
+    "id": 85,
+    "date": "2026-02-02",
+    "category": "Design & Technology",
+    "content": "Every QuickShort layout adheres to the same baseline grid system to ensure visual rhythm and usability."
+  },
+  {
+    "id": 86,
+    "date": "2026-02-03",
+    "category": "Automation & Productivity",
+    "content": "QuickShort workflows now support preset chaining, combining multiple automation steps under one command."
+  },
+  {
+    "id": 87,
+    "date": "2026-02-04",
+    "category": "QuickShort Audio",
+    "content": "QuickShort Audio features built-in preview renders so creators can check synchronization before export."
+  },
+  {
+    "id": 88,
+    "date": "2026-02-05",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Audio ToolBox introduces reference-track analysis to suggest EQ balance improvements."
+  },
+  {
+    "id": 89,
+    "date": "2026-02-06",
+    "category": "QuickShort PictureBox",
+    "content": "PictureBox’s composition engine supports focal guides, improving alignment for typography overlays."
+  },
+  {
+    "id": 90,
+    "date": "2026-02-07",
+    "category": "QuickShort Video",
+    "content": "QuickShort Video adds silence detection to trim pauses automatically in talk-based clips."
+  },
+  {
+    "id": 91,
+    "date": "2026-02-08",
+    "category": "QuickShort InfoBox",
+    "content": "InfoBox integrates export templates for Apple Music and Spotify for Artists, standardizing submission formats."
+  },
+  {
+    "id": 92,
+    "date": "2026-02-09",
+    "category": "DropPoint",
+    "content": "DropPoint allows deferred uploads, queuing exports for automatic posting at scheduled times."
+  },
+  {
+    "id": 93,
+    "date": "2026-02-10",
+    "category": "QuickShort Core",
+    "content": "QuickShort development cycles emphasize silent efficiency—no splash, just solid, measurable performance gains."
+  },
+  {
+    "id": 94,
+    "date": "2026-02-11",
+    "category": "Music & Sound",
+    "content": "QuickShort Audio continues to serve producers who need speed and reliability more than gimmicks."
+  },
+  {
+    "id": 95,
+    "date": "2026-02-12",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Audio ToolBox supports automatic format conversion for large sample libraries."
+  },
+  {
+    "id": 96,
+    "date": "2026-02-13",
+    "category": "QuickShort PictureBox",
+    "content": "PictureBox updates its generative model with improved text rendering for cover art and posters."
+  },
+  {
+    "id": 97,
+    "date": "2026-02-14",
+    "category": "QuickShort Video",
+    "content": "QuickShort Video provides frame-by-frame subtitle synchronization, essential for global distribution."
+  },
+  {
+    "id": 98,
+    "date": "2026-02-15",
+    "category": "QuickShort InfoBox",
+    "content": "InfoBox ensures consistency by syncing metadata fields across your QuickShort ecosystem."
+  },
+  {
+    "id": 99,
+    "date": "2026-02-16",
+    "category": "DropPoint",
+    "content": "DropPoint gains media tagging, making archived exports searchable by project or platform."
+  },
+  {
+    "id": 100,
+    "date": "2026-02-17",
+    "category": "QuickShort Core",
+    "content": "QuickShort benchmarks every release internally, measuring load times, render speed, and output reliability."
+  },
+  {
+    "id": 101,
+    "date": "2026-02-18",
+    "category": "Design & Technology",
+    "content": "QuickShort maintains consistent typography across products to reinforce its design identity."
+  },
+  {
+    "id": 102,
+    "date": "2026-02-19",
+    "category": "Automation & Productivity",
+    "content": "The newest automation layer in QuickShort enables conditional actions based on file type or size."
+  },
+  {
+    "id": 103,
+    "date": "2026-02-20",
+    "category": "QuickShort Audio",
+    "content": "QuickShort Audio continues to refine its user interface for faster navigation through large batch lists."
+  },
+  {
+    "id": 104,
+    "date": "2026-02-21",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Audio ToolBox adds smart fade analysis that preserves natural reverb tails during export."
+  },
+  {
+    "id": 105,
+    "date": "2026-02-22",
+    "category": "QuickShort PictureBox",
+    "content": "PictureBox implements seed locking so creators can reproduce previous AI results precisely."
+  },
+  {
+    "id": 106,
+    "date": "2026-02-23",
+    "category": "QuickShort Video",
+    "content": "QuickShort Video’s timeline preview shows where edits and cuts occur before final rendering."
+  },
+  {
+    "id": 107,
+    "date": "2026-02-24",
+    "category": "QuickShort InfoBox",
+    "content": "InfoBox can now import existing CSV metadata, reducing duplication across projects."
+  },
+  {
+    "id": 108,
+    "date": "2026-02-25",
+    "category": "DropPoint",
+    "content": "DropPoint integrates reporting on view and engagement metrics for uploaded media."
+  },
+  {
+    "id": 109,
+    "date": "2026-02-26",
+    "category": "QuickShort Core",
+    "content": "QuickShort products remain lightweight—built with performance at the core instead of add-on bloat."
+  },
+  {
+    "id": 110,
+    "date": "2026-02-27",
+    "category": "Music & Sound",
+    "content": "The sound workflow behind QuickShort stems from practical studio experience, not abstract theory."
+  },
+  {
+    "id": 111,
+    "date": "2026-02-28",
+    "category": "QuickShort Audio ToolBox",
+    "content": "Audio ToolBox introduces waveform comparison, helping users visually verify mastering differences."
+  },
+  {
+    "id": 112,
+    "date": "2026-03-01",
+    "category": "QuickShort PictureBox",
+    "content": "PictureBox gains adaptive lighting correction for more realistic generative imagery."
+  },
+  {
+    "id": 113,
+    "date": "2026-03-02",
+    "category": "QuickShort Video",
+    "content": "QuickShort Video adds export grouping so multiple edits of the same project can render simultaneously."
+  },
+  {
+    "id": 114,
+    "date": "2026-03-03",
+    "category": "QuickShort InfoBox",
+    "content": "InfoBox provides validation checks ensuring all required metadata fields are complete before release."
+  },
+  {
+    "id": 115,
+    "date": "2026-03-04",
+    "category": "DropPoint",
+    "content": "DropPoint supports bulk tagging, allowing organized distribution across large catalogs."
+  },
+  {
+    "id": 116,
+    "date": "2026-03-05",
+    "category": "QuickShort Core",
+    "content": "QuickShort remains committed to privacy-first design, keeping all processing local by default."
+  },
+  {
+    "id": 117,
+    "date": "2026-03-06",
+    "category": "Design & Technology",
+    "content": "Each QuickShort release undergoes manual UI review to guarantee accessibility and contrast compliance."
+  },
+  {
+    "id": 118,
+    "date": "2026-03-07",
+    "category": "Automation & Productivity",
+    "content": "QuickShort automation scripts can chain exports between apps, building a full end-to-end workflow."
+  },
+  {
+    "id": 119,
+    "date": "2026-03-08",
+    "category": "Future & Vision",
+    "content": "QuickShort’s roadmap focuses on interoperable automation across creative disciplines."
+  },
+  {
+    "id": 120,
+    "date": "2026-03-09",
+    "category": "QuickShort Core",
+    "content": "QuickShort’s quiet ambition continues—to give creators time back through smart, invisible technology."
+  }
+]
